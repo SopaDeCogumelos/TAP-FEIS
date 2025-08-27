@@ -1,9 +1,13 @@
+""""
+    Author: Luis F. M. Brunhara
+    Date: 2024-08-27
 
+    Description: Aula 2 - Funções e Estruturas Condicionais
+"""
 
 def print_hello(name):
-    if print(f'Hello, {name}!'):
-        return True
-    return False
+    print(f'Hello, {name}!')
+    return True
 
 if __name__ == '__main__':
     if print_hello('Python'):
