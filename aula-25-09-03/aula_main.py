@@ -3,22 +3,25 @@
     Date: 2025-09-03
 
     Description: Aula 3
+
+    Não é bem o que pediu, mas acho que serve. :3
+    Alias, meu GitHub:  https://github.com/SopaDeCogumelos?tab=repositories
 """
 
 class Eletrico:
     def __init__(self, potencia, voltage):
-        super().__init__()  # Call the next __init__ in the MRO.
+        # super().__init__() removed. Initialization is handled by the child class.
         allowed_voltages = ['127V', '220V', 'Bivolt']
         if voltage not in allowed_voltages:
             raise ValueError(f"Voltagem inválida. Use uma das opções: {allowed_voltages}")
 
         self.potencia = potencia   # in Watts
         self.voltage = voltage
-        # The 'categoria' is now set in the child class to avoid being overwritten.
+
     def __str__(self):
         return (
-            f'Produto(nome={self.potencia}, '
-            f'preco={self.voltage}'
+            f'Eletrico(potencia={self.potencia}W, '
+            f'voltage={self.voltage})'
         )
 
 
