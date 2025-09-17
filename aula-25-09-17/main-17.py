@@ -2,6 +2,7 @@
     Disciplina: Tópicos Avançados de Programação
     Professor: Christiane Marie Schweitzer
     Aluno: Luis Felipe Marcon Brunhara
+    Git: https://github.com/SopaDeCogumelos/TAP-FEIS
 
 """
 
@@ -20,13 +21,17 @@ class Conta:
         self.data_vencimento = data_vencimento
         self.taxa_juros = juros
 
-    def __str__(self):
-        return f"Conta - Empresa: {self.nome}, Valor: R${self.valor:.2f}, Vencimento: {self.data_vencimento}"
-    
-    def adicionar_juros(self):
-        dias_atraso = (datetime.now().date() - self.data_vencimento).days
+    def calcular_valor_com_juros(self, dias_atraso):
+        valor_atual = self.valor
         if dias_atraso > 0:
-            self.valor += self.valor * (self.taxa_juros / 100) ** dias_atraso
+            valor_atual += valor_atual * (self.taxa_juros / 100) * dias_atraso
+        return valor_atual
+
+    def __str__(self):
+        dias_atraso = (datetime.now().date() - self.data_vencimento).days
+        valor_atualizado = self.calcular_valor_com_juros(dias_atraso)
+        status_atraso = f", Em atraso: {dias_atraso} dias" if dias_atraso > 0 else ""
+        return f"Conta - Empresa: {self.nome}, Valor Original: R${self.valor:.2f}, Valor com Juros: R${valor_atualizado:.2f}, Vencimento: {self.data_vencimento}{status_atraso}"
 
         
 class ContaEnergia(Conta):
@@ -48,9 +53,8 @@ class ContaEnergia(Conta):
 def menu():
     print("\n=== Menu de Opções ===")
     print("1 - Criar Conta de Energia")
-    print("2 - Adicionar Juros")
+    print("2 - Remover Conta")
     print("3 - Listar Contas")
-    print("4 - Remover Conta")
     print("0 - Sair")
     escolha = input("Escolha uma opção: ")
     return escolha
@@ -95,24 +99,8 @@ def main():
                 print("Detalhes da conta:")
                 print(conta)
                 
-            elif escolha == "2":
-                if not contas:
-                    print("\nNenhuma conta cadastrada!")
-                else:
-                    for conta in contas:
-                        conta.adicionar_juros()
-                    print("\nJuros adicionados com sucesso!")
-                    
-            elif escolha == "3":
-                if not contas:
-                    print("\nNenhuma conta cadastrada!")
-                else:
-                    print("\n=== Lista de Contas ===")
-                    for i, conta in enumerate(contas, 1):
-                        print(f"\nConta #{i}")
-                        print(conta)
             
-            elif escolha == "4":
+            elif escolha == "2":
                 if not contas:
                     print("\nNenhuma conta cadastrada!")
                 else:
@@ -131,6 +119,15 @@ def main():
                     except Exception as e:
                         print(f"\nErro inesperado: {e}")
                         return
+                    
+            elif escolha == "3":
+                if not contas:
+                    print("\nNenhuma conta cadastrada!")
+                else:
+                    print("\n=== Lista de Contas ===")
+                    for i, conta in enumerate(contas, 1):
+                        print(f"\nConta #{i}")
+                        print(conta)
                         
             elif escolha == "0":
                 print("\nEncerrando o programa...")
