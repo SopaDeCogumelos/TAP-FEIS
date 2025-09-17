@@ -50,6 +50,7 @@ def menu():
     print("1 - Criar Conta de Energia")
     print("2 - Adicionar Juros")
     print("3 - Listar Contas")
+    print("4 - Remover Conta")
     print("0 - Sair")
     escolha = input("Escolha uma opção: ")
     return escolha
@@ -110,6 +111,26 @@ def main():
                     for i, conta in enumerate(contas, 1):
                         print(f"\nConta #{i}")
                         print(conta)
+            
+            elif escolha == "4":
+                if not contas:
+                    print("\nNenhuma conta cadastrada!")
+                else:
+                    print("\n=== Lista de Contas ===")
+                    for i, conta in enumerate(contas, 1):
+                        print(f"{i} - {conta}")
+                    try:
+                        idx = int(input("Digite o número da conta que deseja remover: ")) - 1
+                        if 0 <= idx < len(contas):
+                            removed = contas.pop(idx)
+                            print(f"\nConta removida com sucesso: {removed}")
+                        else:
+                            print("\nNúmero inválido.")
+                    except ValueError:
+                        print("\nEntrada inválida. Digite um número válido.")
+                    except Exception as e:
+                        print(f"\nErro inesperado: {e}")
+                        return
                         
             elif escolha == "0":
                 print("\nEncerrando o programa...")
