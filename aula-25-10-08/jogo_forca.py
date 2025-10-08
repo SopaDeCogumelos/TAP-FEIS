@@ -12,11 +12,27 @@ import random
 
 # --- BEGIN Declaração de Classes e Funções ---
 
-def select_word():
-    # Seleciona uma palavra aleatória de uma lista predefinida.
-    words = ["banana", "abacaxi", "uva", "mamao", "laranja", "morango", "limao"]
+# Função para definir o tema do jogo
+def choose_theme():
+    # Seleciona um tema aleatorio.
+    themes = ["frutas", "animais", "países", "cores"]
+    return random.choice(themes).lower()
+
+# Função para selecionar uma palavra aleatória da lista
+def select_word(theme):
+    # Seleciona uma palavra aleatória de uma lista predefinida de acordo com o tema.
+    words = []
+    if theme == "frutas":
+        words = ["banana", "abacaxi", "uva", "mamao", "laranja", "morango", "limao"]
+    elif theme == "animais":
+        words = ["elefante", "girafa", "leao", "tigre", "zebra", "canguru", "hipopotamo"]
+    elif theme == "países":
+        words = ["brasil", "argentina", "chile", "colombia", "peru", "venezuela", "uruguai"]
+    elif theme == "cores":
+        words = ["vermelho", "azul", "verde", "amarelo", "roxo", "laranja", "rosa"]
     return random.choice(words).lower()
 
+# Função para exibir o estado atual da forca
 def display_hangman(attempts):
     # Exibe o estado da forca com base no número de erros.
     stages = [  # 6 erros: Final
@@ -92,6 +108,7 @@ def display_hangman(attempts):
     ]
     return stages[attempts]
 
+# Função principal para executar o jogo da forca.
 def play_hangman():
     # Função principal para executar o jogo da forca.
 
@@ -100,7 +117,9 @@ def play_hangman():
     # -- BEGIN Loop Principal do Jogo ---
     while True:
         # Inicia um novo jogo
-        word = select_word()
+        choosed_theme = choose_theme()
+        print(f"Tema escolhido: {choosed_theme.capitalize()}")
+        word = select_word(choosed_theme)
         guessed_letters = set()  # Usar um conjunto é eficiente para verificar letras já tentadas
         attempts_left = 6
 
