@@ -1,0 +1,614 @@
+[
+    {
+        "name": "L\u00e2mpada NEO 10W RGB 2",
+        "id": "ebecbc6d2743ca812dzudh",
+        "key": "SJ*:Nn{{+VN2kH3^",
+        "mac": "18:de:50:05:6b:e1",
+        "uuid": "66d3673805254b5e",
+        "sn": "230787B1003A5",
+        "category": "dj",
+        "product_name": "L\u00e2mpada NEO 10W RGB",
+        "product_id": "xtsnfp5zitrmrvcm",
+        "biz_type": 0,
+        "model": "10W",
+        "sub": false,
+        "icon": "https://images.tuyaus.com/smart/icon/bay16081371837848vqs/e4b4e5f8a04a07d84c886ea627d67335.png",
+        "mapping": {
+            "20": {
+                "code": "switch_led",
+                "type": "Boolean",
+                "values": {}
+            },
+            "21": {
+                "code": "work_mode",
+                "type": "Enum",
+                "values": {
+                    "range": [
+                        "white",
+                        "colour",
+                        "scene",
+                        "music"
+                    ]
+                }
+            },
+            "22": {
+                "code": "bright_value",
+                "type": "Integer",
+                "values": {
+                    "min": 10,
+                    "max": 1000,
+                    "scale": 0,
+                    "step": 1
+                }
+            },
+            "23": {
+                "code": "temp_value",
+                "type": "Integer",
+                "values": {
+                    "min": 0,
+                    "max": 1000,
+                    "scale": 0,
+                    "step": 1
+                }
+            },
+            "24": {
+                "code": "colour_data",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            },
+            "25": {
+                "code": "scene_data",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            },
+            "26": {
+                "code": "countdown",
+                "type": "Integer",
+                "values": {
+                    "unit": "s",
+                    "min": 0,
+                    "max": 86400,
+                    "scale": 0,
+                    "step": 1
+                }
+            },
+            "29": {
+                "code": "debug_data",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            },
+            "30": {
+                "code": "rhythm_mode",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 128
+                }
+            },
+            "31": {
+                "code": "sleep_mode",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 128
+                }
+            },
+            "32": {
+                "code": "wakeup_mode",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 128
+                }
+            },
+            "33": {
+                "code": "power_memory",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 255
+                }
+            },
+            "34": {
+                "code": "do_not_disturb",
+                "type": "Boolean",
+                "values": {}
+            },
+            "35": {
+                "code": "switch_gradient",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 128
+                }
+            },
+            "82": {
+                "code": "candle_mode_data",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 128
+                }
+            },
+            "209": {
+                "code": "cycle_timing",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 255
+                }
+            },
+            "210": {
+                "code": "random_timing",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 255
+                }
+            },
+            "27": {
+                "code": "music_data",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            },
+            "28": {
+                "code": "control_data",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            }
+        },
+        "ip": "",
+        "version": ""
+    },
+    {
+        "name": "L\u00e2mpada NEO 10W RGB",
+        "id": "eb248a6af551067dc0wfhx",
+        "key": "~M]LGq#1*Dyp#1'#",
+        "mac": "18:de:50:05:a7:8a",
+        "uuid": "6c1dc74e6f52c710",
+        "sn": "230787B103980",
+        "category": "dj",
+        "product_name": "L\u00e2mpada NEO 10W RGB",
+        "product_id": "xtsnfp5zitrmrvcm",
+        "biz_type": 0,
+        "model": "10W",
+        "sub": false,
+        "icon": "https://images.tuyaus.com/smart/icon/bay16081371837848vqs/e4b4e5f8a04a07d84c886ea627d67335.png",
+        "mapping": {
+            "20": {
+                "code": "switch_led",
+                "type": "Boolean",
+                "values": {}
+            },
+            "21": {
+                "code": "work_mode",
+                "type": "Enum",
+                "values": {
+                    "range": [
+                        "white",
+                        "colour",
+                        "scene",
+                        "music"
+                    ]
+                }
+            },
+            "22": {
+                "code": "bright_value",
+                "type": "Integer",
+                "values": {
+                    "min": 10,
+                    "max": 1000,
+                    "scale": 0,
+                    "step": 1
+                }
+            },
+            "23": {
+                "code": "temp_value",
+                "type": "Integer",
+                "values": {
+                    "min": 0,
+                    "max": 1000,
+                    "scale": 0,
+                    "step": 1
+                }
+            },
+            "24": {
+                "code": "colour_data",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            },
+            "25": {
+                "code": "scene_data",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            },
+            "26": {
+                "code": "countdown",
+                "type": "Integer",
+                "values": {
+                    "unit": "s",
+                    "min": 0,
+                    "max": 86400,
+                    "scale": 0,
+                    "step": 1
+                }
+            },
+            "29": {
+                "code": "debug_data",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            },
+            "30": {
+                "code": "rhythm_mode",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 128
+                }
+            },
+            "31": {
+                "code": "sleep_mode",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 128
+                }
+            },
+            "32": {
+                "code": "wakeup_mode",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 128
+                }
+            },
+            "33": {
+                "code": "power_memory",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 255
+                }
+            },
+            "34": {
+                "code": "do_not_disturb",
+                "type": "Boolean",
+                "values": {}
+            },
+            "35": {
+                "code": "switch_gradient",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 128
+                }
+            },
+            "82": {
+                "code": "candle_mode_data",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 128
+                }
+            },
+            "209": {
+                "code": "cycle_timing",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 255
+                }
+            },
+            "210": {
+                "code": "random_timing",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 255
+                }
+            },
+            "27": {
+                "code": "music_data",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            },
+            "28": {
+                "code": "control_data",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            }
+        },
+        "ip": "",
+        "version": ""
+    },
+    {
+        "name": "Quarto Fundo",
+        "id": "eb6e1155750a56afefzctr",
+        "key": "<[YELUF'Q9v!kxvD",
+        "mac": "18:de:50:05:9f:f2",
+        "uuid": "01f2541830b243b6",
+        "sn": "230787B103CEB",
+        "category": "dj",
+        "product_name": "L\u00e2mpada NEO 10W RGB",
+        "product_id": "xtsnfp5zitrmrvcm",
+        "biz_type": 0,
+        "model": "10W",
+        "sub": false,
+        "icon": "https://images.tuyaus.com/smart/icon/bay16081371837848vqs/c173801b60960629ffeccc0c86ca4dd4.png",
+        "mapping": {
+            "20": {
+                "code": "switch_led",
+                "type": "Boolean",
+                "values": {}
+            },
+            "21": {
+                "code": "work_mode",
+                "type": "Enum",
+                "values": {
+                    "range": [
+                        "white",
+                        "colour",
+                        "scene",
+                        "music"
+                    ]
+                }
+            },
+            "22": {
+                "code": "bright_value",
+                "type": "Integer",
+                "values": {
+                    "min": 10,
+                    "max": 1000,
+                    "scale": 0,
+                    "step": 1
+                }
+            },
+            "23": {
+                "code": "temp_value",
+                "type": "Integer",
+                "values": {
+                    "min": 0,
+                    "max": 1000,
+                    "scale": 0,
+                    "step": 1
+                }
+            },
+            "24": {
+                "code": "colour_data",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            },
+            "25": {
+                "code": "scene_data",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            },
+            "26": {
+                "code": "countdown",
+                "type": "Integer",
+                "values": {
+                    "unit": "s",
+                    "min": 0,
+                    "max": 86400,
+                    "scale": 0,
+                    "step": 1
+                }
+            },
+            "29": {
+                "code": "debug_data",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            },
+            "30": {
+                "code": "rhythm_mode",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 128
+                }
+            },
+            "31": {
+                "code": "sleep_mode",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 128
+                }
+            },
+            "32": {
+                "code": "wakeup_mode",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 128
+                }
+            },
+            "33": {
+                "code": "power_memory",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 255
+                }
+            },
+            "34": {
+                "code": "do_not_disturb",
+                "type": "Boolean",
+                "values": {}
+            },
+            "35": {
+                "code": "switch_gradient",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 128
+                }
+            },
+            "82": {
+                "code": "candle_mode_data",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 128
+                }
+            },
+            "209": {
+                "code": "cycle_timing",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 255
+                }
+            },
+            "210": {
+                "code": "random_timing",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 255
+                }
+            },
+            "27": {
+                "code": "music_data",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            },
+            "28": {
+                "code": "control_data",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            }
+        },
+        "ip": "",
+        "version": ""
+    },
+    {
+        "name": "Quarto Frente",
+        "id": "eb0c51a0ad75437a11wcoi",
+        "key": "NY><r+?LyLP_zk+E",
+        "mac": "18:de:50:05:92:ea",
+        "uuid": "ed0213b70a199c5d",
+        "sn": "230787B103C6B",
+        "category": "dj",
+        "product_name": "L\u00e2mpada NEO 10W RGB",
+        "product_id": "xtsnfp5zitrmrvcm",
+        "biz_type": 0,
+        "model": "10W",
+        "sub": false,
+        "icon": "https://images.tuyaus.com/smart/icon/bay16081371837848vqs/c173801b60960629ffeccc0c86ca4dd4.png",
+        "mapping": {
+            "20": {
+                "code": "switch_led",
+                "type": "Boolean",
+                "values": {}
+            },
+            "21": {
+                "code": "work_mode",
+                "type": "Enum",
+                "values": {
+                    "range": [
+                        "white",
+                        "colour",
+                        "scene",
+                        "music"
+                    ]
+                }
+            },
+            "22": {
+                "code": "bright_value",
+                "type": "Integer",
+                "values": {
+                    "min": 10,
+                    "max": 1000,
+                    "scale": 0,
+                    "step": 1
+                }
+            },
+            "23": {
+                "code": "temp_value",
+                "type": "Integer",
+                "values": {
+                    "min": 0,
+                    "max": 1000,
+                    "scale": 0,
+                    "step": 1
+                }
+            },
+            "24": {
+                "code": "colour_data",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            },
+            "25": {
+                "code": "scene_data",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            },
+            "26": {
+                "code": "countdown",
+                "type": "Integer",
+                "values": {
+                    "unit": "s",
+                    "min": 0,
+                    "max": 86400,
+                    "scale": 0,
+                    "step": 1
+                }
+            },
+            "29": {
+                "code": "debug_data",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            },
+            "30": {
+                "code": "rhythm_mode",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 128
+                }
+            },
+            "31": {
+                "code": "sleep_mode",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 128
+                }
+            },
+            "32": {
+                "code": "wakeup_mode",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 128
+                }
+            },
+            "33": {
+                "code": "power_memory",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 255
+                }
+            },
+            "34": {
+                "code": "do_not_disturb",
+                "type": "Boolean",
+                "values": {}
+            },
+            "35": {
+                "code": "switch_gradient",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 128
+                }
+            },
+            "82": {
+                "code": "candle_mode_data",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 128
+                }
+            },
+            "209": {
+                "code": "cycle_timing",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 255
+                }
+            },
+            "210": {
+                "code": "random_timing",
+                "type": "Raw",
+                "values": {
+                    "maxlen": 255
+                }
+            },
+            "27": {
+                "code": "music_data",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            },
+            "28": {
+                "code": "control_data",
+                "type": "String",
+                "values": "{\"maxlen\":255}"
+            }
+        },
+        "ip": "192.168.1.6",
+        "version": "3.5"
+    }
+]
