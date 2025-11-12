@@ -1,5 +1,5 @@
 {
-    "timestamp": 1762807618.0959094,
+    "timestamp": 1762953661.9061632,
     "devices": [
         {
             "id": "eb0c51a0ad75437a11wcoi",
@@ -10,7 +10,7 @@
             "productKey": "key8u54q9dtru5jw",
             "token": true,
             "wf_cfg": true,
-            "clientLink": 2,
+            "clientLink": 3,
             "name": "Quarto Frente",
             "key": "NY><r+?LyLP_zk+E",
             "mac": "18:de:50:05:92:ea",
@@ -23,7 +23,7 @@
                     "20": false,
                     "21": "white",
                     "22": 1000,
-                    "23": 1000,
+                    "23": 0,
                     "24": "000003e803e8",
                     "25": "000e0d0000000000000000c80000",
                     "26": 0,

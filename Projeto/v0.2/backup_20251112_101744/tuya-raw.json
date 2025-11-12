@@ -1,0 +1,386 @@
+{
+    "result": [
+        {
+            "active_time": 1761351599,
+            "biz_type": 0,
+            "category": "dj",
+            "create_time": 1757123002,
+            "icon": "smart/icon/bay16081371837848vqs/e4b4e5f8a04a07d84c886ea627d67335.png",
+            "id": "ebecbc6d2743ca812dzudh",
+            "ip": "177.71.26.60",
+            "lat": "-20.43",
+            "local_key": "SJ*:Nn{{+VN2kH3^",
+            "lon": "-51.34",
+            "model": "10W",
+            "name": "L\u00e2mpada NEO 10W RGB 2",
+            "online": false,
+            "owner_id": "264374111",
+            "product_id": "xtsnfp5zitrmrvcm",
+            "product_name": "L\u00e2mpada NEO 10W RGB",
+            "status": [
+                {
+                    "code": "switch_led",
+                    "value": true
+                },
+                {
+                    "code": "work_mode",
+                    "value": "white"
+                },
+                {
+                    "code": "bright_value",
+                    "value": 1000
+                },
+                {
+                    "code": "temp_value",
+                    "value": 1000
+                },
+                {
+                    "code": "colour_data",
+                    "value": "000003e803e8"
+                },
+                {
+                    "code": "scene_data",
+                    "value": "000e0d0000000000000000c80000"
+                },
+                {
+                    "code": "countdown",
+                    "value": 0
+                },
+                {
+                    "code": "debug_data",
+                    "value": ""
+                },
+                {
+                    "code": "rhythm_mode",
+                    "value": "AAAAAAA="
+                },
+                {
+                    "code": "sleep_mode",
+                    "value": "AAA="
+                },
+                {
+                    "code": "wakeup_mode",
+                    "value": "AAA="
+                },
+                {
+                    "code": "power_memory",
+                    "value": "AAEAAAPoA+gD6APo"
+                },
+                {
+                    "code": "do_not_disturb",
+                    "value": true
+                },
+                {
+                    "code": "switch_gradient",
+                    "value": "AAADIAADIA=="
+                },
+                {
+                    "code": "candle_mode_data",
+                    "value": "AAAAAAAAAAAAAA=="
+                },
+                {
+                    "code": "cycle_timing",
+                    "value": "AAAA"
+                },
+                {
+                    "code": "random_timing",
+                    "value": "AAAA"
+                }
+            ],
+            "sub": false,
+            "time_zone": "-03:00",
+            "uid": "az1756939778813sdWbT",
+            "update_time": 1762802076,
+            "uuid": "66d3673805254b5e"
+        },
+        {
+            "active_time": 1761351586,
+            "biz_type": 0,
+            "category": "dj",
+            "create_time": 1757122986,
+            "icon": "smart/icon/bay16081371837848vqs/e4b4e5f8a04a07d84c886ea627d67335.png",
+            "id": "eb248a6af551067dc0wfhx",
+            "ip": "177.71.26.60",
+            "lat": "-20.43",
+            "local_key": "~M]LGq#1*Dyp#1'#",
+            "lon": "-51.34",
+            "model": "10W",
+            "name": "L\u00e2mpada NEO 10W RGB",
+            "online": false,
+            "owner_id": "264374111",
+            "product_id": "xtsnfp5zitrmrvcm",
+            "product_name": "L\u00e2mpada NEO 10W RGB",
+            "status": [
+                {
+                    "code": "switch_led",
+                    "value": true
+                },
+                {
+                    "code": "work_mode",
+                    "value": "white"
+                },
+                {
+                    "code": "bright_value",
+                    "value": 1000
+                },
+                {
+                    "code": "temp_value",
+                    "value": 1000
+                },
+                {
+                    "code": "colour_data",
+                    "value": "000003e803e8"
+                },
+                {
+                    "code": "scene_data",
+                    "value": "000e0d0000000000000000c80000"
+                },
+                {
+                    "code": "countdown",
+                    "value": 0
+                },
+                {
+                    "code": "debug_data",
+                    "value": ""
+                },
+                {
+                    "code": "rhythm_mode",
+                    "value": "AAAAAAA="
+                },
+                {
+                    "code": "sleep_mode",
+                    "value": "AAA="
+                },
+                {
+                    "code": "wakeup_mode",
+                    "value": "AAA="
+                },
+                {
+                    "code": "power_memory",
+                    "value": "AAEAAAPoA+gD6APo"
+                },
+                {
+                    "code": "do_not_disturb",
+                    "value": true
+                },
+                {
+                    "code": "switch_gradient",
+                    "value": "AAADIAADIA=="
+                },
+                {
+                    "code": "candle_mode_data",
+                    "value": "AAAAAAAAAAAAAA=="
+                },
+                {
+                    "code": "cycle_timing",
+                    "value": "AAAA"
+                },
+                {
+                    "code": "random_timing",
+                    "value": "AAAA"
+                }
+            ],
+            "sub": false,
+            "time_zone": "-03:00",
+            "uid": "az1756939778813sdWbT",
+            "update_time": 1762802075,
+            "uuid": "6c1dc74e6f52c710"
+        },
+        {
+            "active_time": 1757103575,
+            "biz_type": 0,
+            "category": "dj",
+            "create_time": 1756683532,
+            "icon": "smart/icon/bay16081371837848vqs/c173801b60960629ffeccc0c86ca4dd4.png",
+            "id": "eb6e1155750a56afefzctr",
+            "ip": "45.180.19.136",
+            "lat": "-20.43",
+            "local_key": "<[YELUF'Q9v!kxvD",
+            "lon": "-51.34",
+            "model": "10W",
+            "name": "Quarto Fundo",
+            "online": false,
+            "owner_id": "263273107",
+            "product_id": "xtsnfp5zitrmrvcm",
+            "product_name": "L\u00e2mpada NEO 10W RGB",
+            "status": [
+                {
+                    "code": "switch_led",
+                    "value": true
+                },
+                {
+                    "code": "work_mode",
+                    "value": "white"
+                },
+                {
+                    "code": "bright_value",
+                    "value": 1000
+                },
+                {
+                    "code": "temp_value",
+                    "value": 1000
+                },
+                {
+                    "code": "colour_data",
+                    "value": "000003e803e8"
+                },
+                {
+                    "code": "scene_data",
+                    "value": "000e0d0000000000000000c80000"
+                },
+                {
+                    "code": "countdown",
+                    "value": 0
+                },
+                {
+                    "code": "debug_data",
+                    "value": ""
+                },
+                {
+                    "code": "rhythm_mode",
+                    "value": "AAAAAAA="
+                },
+                {
+                    "code": "sleep_mode",
+                    "value": "AAA="
+                },
+                {
+                    "code": "wakeup_mode",
+                    "value": "AAA="
+                },
+                {
+                    "code": "power_memory",
+                    "value": "AAEAAAPoA+gD6APo"
+                },
+                {
+                    "code": "do_not_disturb",
+                    "value": true
+                },
+                {
+                    "code": "switch_gradient",
+                    "value": "AAADIAADIA=="
+                },
+                {
+                    "code": "candle_mode_data",
+                    "value": "AAAAAAAAAAAAAA=="
+                },
+                {
+                    "code": "cycle_timing",
+                    "value": "AAAA"
+                },
+                {
+                    "code": "random_timing",
+                    "value": "AAAA"
+                }
+            ],
+            "sub": false,
+            "time_zone": "-03:00",
+            "uid": "az1756939778813sdWbT",
+            "update_time": 1762779321,
+            "uuid": "01f2541830b243b6"
+        },
+        {
+            "active_time": 1758508362,
+            "biz_type": 0,
+            "category": "dj",
+            "create_time": 1756683797,
+            "icon": "smart/icon/bay16081371837848vqs/c173801b60960629ffeccc0c86ca4dd4.png",
+            "id": "eb0c51a0ad75437a11wcoi",
+            "ip": "45.180.19.140",
+            "lat": "-20.43",
+            "local_key": "NY><r+?LyLP_zk+E",
+            "lon": "-51.34",
+            "model": "10W",
+            "name": "Quarto Frente",
+            "online": true,
+            "owner_id": "263273107",
+            "product_id": "xtsnfp5zitrmrvcm",
+            "product_name": "L\u00e2mpada NEO 10W RGB",
+            "status": [
+                {
+                    "code": "switch_led",
+                    "value": false
+                },
+                {
+                    "code": "work_mode",
+                    "value": "white"
+                },
+                {
+                    "code": "bright_value",
+                    "value": 1000
+                },
+                {
+                    "code": "temp_value",
+                    "value": 1000
+                },
+                {
+                    "code": "colour_data",
+                    "value": "000003e803e8"
+                },
+                {
+                    "code": "scene_data",
+                    "value": "000e0d0000000000000000c80000"
+                },
+                {
+                    "code": "countdown",
+                    "value": 0
+                },
+                {
+                    "code": "debug_data",
+                    "value": ""
+                },
+                {
+                    "code": "rhythm_mode",
+                    "value": "AAAAAAA="
+                },
+                {
+                    "code": "sleep_mode",
+                    "value": "AAA="
+                },
+                {
+                    "code": "wakeup_mode",
+                    "value": "AAA="
+                },
+                {
+                    "code": "power_memory",
+                    "value": "AAAAAAPoA+gA+ANZ"
+                },
+                {
+                    "code": "do_not_disturb",
+                    "value": true
+                },
+                {
+                    "code": "switch_gradient",
+                    "value": "AAADIAADIA=="
+                },
+                {
+                    "code": "candle_mode_data",
+                    "value": "AAAAAAAAAAAAAA=="
+                },
+                {
+                    "code": "cycle_timing",
+                    "value": "AAAA"
+                },
+                {
+                    "code": "random_timing",
+                    "value": "AAAA"
+                }
+            ],
+            "sub": false,
+            "time_zone": "-03:00",
+            "uid": "az1756939778813sdWbT",
+            "update_time": 1762752445,
+            "uuid": "ed0213b70a199c5d"
+        }
+    ],
+    "success": true,
+    "t": 1762807596160,
+    "tid": "59320459be7611f0b8aec6a1562d44cf",
+    "file": {
+        "name": "tuya-raw.json",
+        "description": "Full raw list of Tuya devices.",
+        "account": "aysshstpp5u35tn97q7r",
+        "date": "2025-11-10T17:46:35.166606",
+        "tinytuya": "1.17.4"
+    }
+}

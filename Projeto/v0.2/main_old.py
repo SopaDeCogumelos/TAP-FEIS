@@ -17,11 +17,7 @@ from tuya_lib import (
     clear_screen, format_status_readable, is_lamp_online
 )
 
-"""
-BEGIN print_menu:
-  @param current_lamp_name: str - Nome da lâmpada atualmente selecionada (opcional)
-  @retparms: None - Apenas exibe o menu na tela
-"""
+
 def print_menu(current_lamp_name: str = ""):
     """Exibe o menu principal"""
     lamp_info = f" ({current_lamp_name})" if current_lamp_name else ""
@@ -39,19 +35,12 @@ def print_menu(current_lamp_name: str = ""):
 ║  0. Sair                                ║
 ╚═════════════════════════════════════════╝
 """)
-"""
-END print_menu
-"""
+
 
 # ============================================================================
 # FUNÇÕES DOS SUBMENUS
 # ============================================================================
 
-"""
-BEGIN toggle_power:
-  @param lamp: SmartLamp - Instância da lâmpada a ser controlada
-  @retparms: None - Altera o estado de energia da lâmpada e exibe resultado
-"""
 def toggle_power(lamp: SmartLamp):
     """Opção 1: Liga ou desliga a lâmpada"""
     status = lamp.get_status()
@@ -72,29 +61,15 @@ def toggle_power(lamp: SmartLamp):
             print("✓ Lâmpada ligada com sucesso!")
         else:
             print("✗ Erro ao ligar lâmpada")
-"""
-END toggle_power
-"""
 
-"""
-BEGIN show_status:
-  @param lamp: SmartLamp - Instância da lâmpada para obter status
-  @retparms: None - Exibe o status formatado da lâmpada na tela
-"""
+
 def show_status(lamp: SmartLamp):
     """Opção 5: Mostra o status da lâmpada"""
     print("\n📊 Obtendo status da lâmpada...")
     status_text = format_status_readable(lamp)
     print(status_text)
-"""
-END show_status
-"""
 
-"""
-BEGIN set_brightness
-  @param lamp: SmartLamp - Instância da lâmpada para ajustar brilho
-  @retparms: None - Solicita valor de brilho e aplica à lâmpada
-"""
+
 def set_brightness(lamp: SmartLamp):
     """Opção 2: Ajusta o brilho da lâmpada"""
     try:
@@ -112,15 +87,8 @@ def set_brightness(lamp: SmartLamp):
 
     except ValueError:
         print("✗ Valor inválido! Digite um número entre 0 e 100.")
-"""
-END set_brightness
-"""
 
-"""
-BEGIN set_temperature
-  @param lamp: SmartLamp - Instância da lâmpada para ajustar temperatura
-  @retparms: None - Solicita valor de temperatura e aplica à lâmpada
-"""
+
 def set_temperature(lamp: SmartLamp):
     """Opção 3: Ajusta a temperatura da cor"""
     try:
@@ -138,15 +106,8 @@ def set_temperature(lamp: SmartLamp):
 
     except ValueError:
         print("✗ Valor inválido! Digite um número entre 0 e 100.")
-"""
-END set_temperature
-"""
 
-"""
-BEGIN set_color
-  @param lamp: SmartLamp - Instância da lâmpada para configurar cor
-  @retparms: None - Exibe submenu de configuração de cor
-"""
+
 def set_color(lamp: SmartLamp):
     """Opção 4: Configura a cor da lâmpada"""
     print("""
@@ -172,14 +133,8 @@ def set_color(lamp: SmartLamp):
         return
     else:
         print("✗ Opção inválida!")
-"""
-END set_color
-"""
 
-"""
-BEGIN print_debug_menu
-  @retparms: None - Apenas exibe o menu de debug na tela
-"""
+
 def print_debug_menu():
     """Exibe o menu de debug"""
     print("""
@@ -191,15 +146,8 @@ def print_debug_menu():
 ║  0. Voltar                              ║
 ╚═════════════════════════════════════════╝
 """)
-"""
-END print_debug_menu
-"""
 
-# ============================================================================
-# BEGIN show_debug_menu
-# ============================================================================
-# @param lamp: SmartLamp - Instância da lâmpada para operações de debug
-# @retparms: None - Executa menu interativo de debug
+
 def show_debug_menu(lamp: SmartLamp):
     """Opção 6: Menu de debug"""
     while True:
@@ -218,15 +166,8 @@ def show_debug_menu(lamp: SmartLamp):
             time.sleep(1)
 
         clear_screen()
-# ============================================================================
-# END show_debug_menu
-# ============================================================================
 
-# ============================================================================
-# BEGIN set_color_by_hex
-# ============================================================================
-# @param lamp: SmartLamp - Instância da lâmpada para configurar cor
-# @retparms: None - Solicita código hexadecimal e aplica à lâmpada
+
 def set_color_by_hex(lamp: SmartLamp):
     """Define cor por código hexadecimal"""
     hex_color = input("Digite o código hexadecimal (ex: FF0000): ").strip()
@@ -236,15 +177,8 @@ def set_color_by_hex(lamp: SmartLamp):
         print("✓ Cor configurada com sucesso!")
     else:
         print("✗ Erro ao configurar cor")
-# ============================================================================
-# END set_color_by_hex
-# ============================================================================
 
-# ============================================================================
-# BEGIN set_color_by_rgb
-# ============================================================================
-# @param lamp: SmartLamp - Instância da lâmpada para configurar cor
-# @retparms: None - Solicita valores RGB e aplica à lâmpada
+
 def set_color_by_rgb(lamp: SmartLamp):
     """Define cor por valores RGB"""
     try:
@@ -260,15 +194,8 @@ def set_color_by_rgb(lamp: SmartLamp):
 
     except ValueError:
         print("✗ Valores inválidos! Digite números entre 0 e 255.")
-# ============================================================================
-# END set_color_by_rgb
-# ============================================================================
 
-# ============================================================================
-# BEGIN set_color_by_preset
-# ============================================================================
-# @param lamp: SmartLamp - Instância da lâmpada para configurar cor
-# @retparms: None - Exibe menu de cores predefinidas e aplica seleção
+
 def set_color_by_preset(lamp: SmartLamp):
     """Define cor por predefinições"""
     presets = {
@@ -309,15 +236,8 @@ def set_color_by_preset(lamp: SmartLamp):
         return
     else:
         print("✗ Opção inválida!")
-# ============================================================================
-# END set_color_by_preset
-# ============================================================================
 
-# ============================================================================
-# BEGIN select_lamp_menu
-# ============================================================================
-# @param devices: list - Lista de dispositivos disponíveis
-# @retparms: dict or None - Retorna dispositivo selecionado ou None se cancelado
+
 def select_lamp_menu(devices: list) -> dict:
     """Menu para seleção de lâmpada"""
     while True:
@@ -365,16 +285,8 @@ def select_lamp_menu(devices: list) -> dict:
             print("✗ Opção inválida!")
 
         time.sleep(1)
-# ============================================================================
-# END select_lamp_menu
-# ============================================================================
 
-# ============================================================================
-# BEGIN interactive_menu
-# ============================================================================
-# @param lamp: SmartLamp - Instância da lâmpada para controle
-# @param devices: list - Lista de dispositivos disponíveis (opcional)
-# @retparms: SmartLamp - Retorna a lâmpada atual (pode ter mudado se usuário trocou)
+
 def interactive_menu(lamp: SmartLamp, devices: list = None):
     """Menu interativo para controle da lâmpada"""
     current_lamp_name = lamp.config['name'] if lamp else ""
@@ -420,15 +332,8 @@ def interactive_menu(lamp: SmartLamp, devices: list = None):
             input("\nPressione ENTER para continuar...")
 
     return lamp
-# ============================================================================
-# END interactive_menu
-# ============================================================================
 
-# ============================================================================
-# BEGIN test_sequence
-# ============================================================================
-# @param lamp: SmartLamp - Instância da lâmpada para executar testes
-# @retparms: None - Executa sequência completa de testes na lâmpada
+
 def test_sequence(lamp: SmartLamp):
     """Executa uma sequência de teste na lâmpada"""
     print("\n🧪 Iniciando sequência de teste...")
@@ -483,14 +388,8 @@ def test_sequence(lamp: SmartLamp):
         print("   ✗ Erro ao desligar")
 
     print("\n✓ Sequência de teste concluída!")
-# ============================================================================
-# END test_sequence
-# ============================================================================
 
-# ============================================================================
-# BEGIN print_admin_menu
-# ============================================================================
-# @retparms: None - Apenas exibe o menu de administração na tela
+
 def print_admin_menu():
     """Exibe o menu de administração"""
     print("""
@@ -507,15 +406,8 @@ def print_admin_menu():
 ║  0. Voltar                             ║
 ╚═════════════════════════════════════════╝
 """)
-# ============================================================================
-# END print_admin_menu
-# ============================================================================
 
-# ============================================================================
-# BEGIN admin_menu
-# ============================================================================
-# @param manager: DeviceManager - Instância do gerenciador de dispositivos
-# @retparms: None - Executa menu interativo de administração de dispositivos
+
 def admin_menu(manager: DeviceManager) -> None:
     """Menu de administração de dispositivos"""
     while True:
@@ -573,14 +465,8 @@ def admin_menu(manager: DeviceManager) -> None:
 
         if choice != "0":
             input("\nPressione ENTER para continuar...")
-# ============================================================================
-# END admin_menu
-# ============================================================================
 
-# ============================================================================
-# BEGIN print_main_menu
-# ============================================================================
-# @retparms: None - Apenas exibe o menu principal na tela
+
 def print_main_menu():
     """Exibe o menu inicial"""
     print("""
@@ -593,15 +479,8 @@ def print_main_menu():
 ║  0. Sair                                ║
 ╚═════════════════════════════════════════╝
 """)
-# ============================================================================
-# END print_main_menu
-# ============================================================================
 
-# ============================================================================
-# BEGIN control_lamp
-# ============================================================================
-# @param manager: DeviceManager - Instância do gerenciador de dispositivos
-# @retparms: None - Executa fluxo completo de controle de lâmpada
+
 def control_lamp(manager: DeviceManager) -> None:
     """Função principal para controle de lâmpada"""
     # Carrega dispositivos
@@ -629,14 +508,8 @@ def control_lamp(manager: DeviceManager) -> None:
 
     # Menu interativo
     interactive_menu(lamp, devices)
-# ============================================================================
-# END control_lamp
-# ============================================================================
 
-# ============================================================================
-# BEGIN main
-# ============================================================================
-# @retparms: None - Função principal do programa, ponto de entrada
+
 def main():
     """Função principal"""
     print("""
@@ -666,9 +539,7 @@ CONTROLE DE LÂMPADA INTELIGENTE TUYA - v0.2
 
         if choice != "0":
             input("\nPressione ENTER para continuar...")
-# ============================================================================
-# END main
-# ============================================================================
+
 
 if __name__ == "__main__":
     main()

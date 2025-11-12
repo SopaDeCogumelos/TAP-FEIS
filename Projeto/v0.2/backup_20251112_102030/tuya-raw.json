@@ -918,13 +918,13 @@
         }
     ],
     "success": true,
-    "t": 1762953639046,
-    "tid": "61909fbbbfca11f0b8aec6a1562d44cf",
+    "t": 1762953472504,
+    "tid": "fe4ad4e3bfc911f0bb80f2b1a8517535",
     "file": {
         "name": "tuya-raw.json",
         "description": "Full raw list of Tuya devices.",
         "account": "aysshstpp5u35tn97q7r",
-        "date": "2025-11-12T10:20:41.011042",
+        "date": "2025-11-12T10:17:54.542333",
         "tinytuya": "1.17.4"
     }
 }
