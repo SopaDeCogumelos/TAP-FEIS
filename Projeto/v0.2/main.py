@@ -195,11 +195,11 @@ def print_debug_menu():
 END print_debug_menu
 """
 
-# ============================================================================
-# BEGIN show_debug_menu
-# ============================================================================
-# @param lamp: SmartLamp - Instância da lâmpada para operações de debug
-# @retparms: None - Executa menu interativo de debug
+"""
+BEGIN show_debug_menu
+  @param lamp: SmartLamp - Instância da lâmpada para operações de debug
+  @retparms: None - Executa menu interativo de debug
+"""
 def show_debug_menu(lamp: SmartLamp):
     """Opção 6: Menu de debug"""
     while True:
@@ -218,15 +218,15 @@ def show_debug_menu(lamp: SmartLamp):
             time.sleep(1)
 
         clear_screen()
-# ============================================================================
-# END show_debug_menu
-# ============================================================================
+"""
+END show_debug_menu
+"""
 
-# ============================================================================
-# BEGIN set_color_by_hex
-# ============================================================================
-# @param lamp: SmartLamp - Instância da lâmpada para configurar cor
-# @retparms: None - Solicita código hexadecimal e aplica à lâmpada
+"""
+BEGIN set_color_by_hex
+  @param lamp: SmartLamp - Instância da lâmpada para configurar cor
+  @retparms: None - Solicita código hexadecimal e aplica à lâmpada
+"""
 def set_color_by_hex(lamp: SmartLamp):
     """Define cor por código hexadecimal"""
     hex_color = input("Digite o código hexadecimal (ex: FF0000): ").strip()
@@ -236,9 +236,9 @@ def set_color_by_hex(lamp: SmartLamp):
         print("✓ Cor configurada com sucesso!")
     else:
         print("✗ Erro ao configurar cor")
-# ============================================================================
-# END set_color_by_hex
-# ============================================================================
+"""
+END set_color_by_hex
+"""
 
 # ============================================================================
 # BEGIN set_color_by_rgb
