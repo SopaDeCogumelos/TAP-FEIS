@@ -113,7 +113,48 @@ class TuyaWizard:
             # tinytuya.deviceScan não aceita 'scantime' em algumas versões
             # Usamos forcescan=True para forçar o envio de pacotes de descoberta
             print(f"   (Debug: Iniciando scan com forcescan=True)")
-            devices = tinytuya.deviceScan(forcescan=True)
+            
+            # IMPORTANTE: O tinytuya pede confirmação interativa (input) para escanear redes
+            # quando forcescan=True. Para evitar que o programa trave esperando input,
+            # precisamos desabilitar essa interatividade ou simular o input.
+            # Infelizmente, a função deviceScan não tem um parâmetro 'no_confirm'.
+            # A solução é capturar stdout/stdin ou usar uma abordagem diferente.
+            
+            # Tentativa de usar o parâmetro 'discover' se disponível ou apenas chamar sem forcescan
+            # se a interatividade for um problema.
+            # Mas como vimos que forcescan é necessário, vamos tentar passar 'assume_yes' se existir
+            # ou simplesmente avisar o usuário que pode haver prompt.
+            
+            # Na verdade, olhando o código do tinytuya, ele usa input().
+            # Vamos tentar monkey-patching do input para responder 'y' automaticamente
+            import builtins
+            original_input = builtins.input
+            
+            def auto_yes_input(prompt=None):
+                # Se o prompt for sobre scan de rede, responde 'y'
+                if prompt and ('Scan network' in prompt or 'interface' in prompt):
+                    print(f"{prompt}y (auto)")
+                    return 'y'
+                # Se o prompt for vazio (algumas versões do tinytuya podem fazer isso)
+                if prompt is None:
+                    return 'y'
+                return original_input(prompt)
+            
+            builtins.input = auto_yes_input
+            
+            try:
+                # Reduz o tempo de timeout do socket para evitar bloqueios longos
+                import socket
+                original_timeout = socket.getdefaulttimeout()
+                socket.setdefaulttimeout(2) # 2 segundos de timeout
+                
+                # maxretry=2 limita o tempo de scan
+                devices = tinytuya.deviceScan(forcescan=True, maxretry=2)
+            finally:
+                # Restaura o input e timeout originais
+                builtins.input = original_input
+                if 'original_timeout' in locals():
+                    socket.setdefaulttimeout(original_timeout)
             
             # Converte para dicionário indexado por ID para fácil acesso
             self.local_devices = {}
