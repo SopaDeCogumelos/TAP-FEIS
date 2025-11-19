@@ -205,3 +205,13 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Backup and Old files
+*_old.py
+*_old
+*.backup
+backup_*/
+tinytuya.json
+tuya-raw.json
+devices.json
+snapshot.json
