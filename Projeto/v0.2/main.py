@@ -26,18 +26,18 @@ def print_menu(current_lamp_name: str = ""):
     """Exibe o menu principal"""
     lamp_info = f" ({current_lamp_name})" if current_lamp_name else ""
     print(f"""
-╔═════════════════════════════════════════╗
-║ CONTROLE DE LÂMPADA INTELIGENTE{lamp_info}
-╠═════════════════════════════════════════╣
-║  1. Liga/Desliga                        ║
-║  2. Ajustar brilho                      ║
-║  3. Ajustar temperatura                 ║
-║  4. Configurar cor                      ║
-║  5. Ver status                          ║
-║  6. Debug                               ║
-║  7. Trocar Lâmpada                      ║
-║  0. Sair                                ║
-╚═════════════════════════════════════════╝
+═════════════════════════════════════════
+ CONTROLE DE LÂMPADA INTELIGENTE{lamp_info}
+═════════════════════════════════════════
+    1. Liga/Desliga
+    2. Ajustar brilho
+    3. Ajustar temperatura
+    4. Configurar cor
+    5. Ver status
+    6. Debug
+    7. Trocar Lâmpada
+    0. Sair
+═════════════════════════════════════════
 """)
 """
 END print_menu
@@ -63,15 +63,15 @@ def toggle_power(lamp: SmartLamp):
     if is_on:
         print("\n🌙 Desligando lâmpada...")
         if lamp.turn_off():
-            print("✓ Lâmpada desligada com sucesso!")
+            print("Lâmpada desligada com sucesso!")
         else:
-            print("✗ Erro ao desligar lâmpada")
+            print("Erro ao desligar lâmpada")
     else:
-        print("\n🔆 Ligando lâmpada...")
+        print("\nLigando lâmpada...")
         if lamp.turn_on():
-            print("✓ Lâmpada ligada com sucesso!")
+            print("Lâmpada ligada com sucesso!")
         else:
-            print("✗ Erro ao ligar lâmpada")
+            print("Erro ao ligar lâmpada")
 """
 END toggle_power
 """
@@ -83,7 +83,7 @@ BEGIN show_status:
 """
 def show_status(lamp: SmartLamp):
     """Opção 5: Mostra o status da lâmpada"""
-    print("\n📊 Obtendo status da lâmpada...")
+    print("\nObtendo status da lâmpada...")
     status_text = format_status_readable(lamp)
     print(status_text)
 """
@@ -104,14 +104,14 @@ def set_brightness(lamp: SmartLamp):
         if 0 <= value <= 100:
             print(f"\n💡 Ajustando brilho para {value}%...")
             if lamp.set_brightness(value):
-                print("✓ Brilho ajustado com sucesso!")
+                print("Brilho ajustado com sucesso!")
             else:
-                print("✗ Erro ao ajustar brilho")
+                print("Erro ao ajustar brilho")
         else:
-            print("✗ Valor deve estar entre 0 e 100!")
+            print("Valor deve estar entre 0 e 100!")
 
     except ValueError:
-        print("✗ Valor inválido! Digite um número entre 0 e 100.")
+        print("Valor inválido! Digite um número entre 0 e 100.")
 """
 END set_brightness
 """
@@ -128,16 +128,16 @@ def set_temperature(lamp: SmartLamp):
         value = int(current_value)
 
         if 0 <= value <= 100:
-            print(f"\n🌡️  Ajustando temperatura para {value}%...")
+            print(f"\nAjustando temperatura para {value}%...")
             if lamp.set_temperature(value):
-                print("✓ Temperatura ajustada com sucesso!")
+                print("Temperatura ajustada com sucesso!")
             else:
-                print("✗ Erro ao ajustar temperatura")
+                print("Erro ao ajustar temperatura")
         else:
-            print("✗ Valor deve estar entre 0 e 100!")
+            print("Valor deve estar entre 0 e 100!")
 
     except ValueError:
-        print("✗ Valor inválido! Digite um número entre 0 e 100.")
+        print("Valor inválido! Digite um número entre 0 e 100.")
 """
 END set_temperature
 """
@@ -150,16 +150,16 @@ BEGIN set_color
 def set_color(lamp: SmartLamp):
     """Opção 4: Configura a cor da lâmpada"""
     print("""
-╔═════════════════════════════════════════╗
-║           CONFIGURAR COR               ║
-╠═════════════════════════════════════════╣
-║  1. Por código hexadecimal (ex: FF0000)║
-║  2. Por valores RGB (0-255)            ║
-║  3. Cores predefinidas                  ║
-║  0. Voltar                              ║
-╚═════════════════════════════════════════╝
+═════════════════════════════════════════
+           CONFIGURAR COR               
+═════════════════════════════════════════
+    1. Por código hexadecimal (ex: FF0000)
+    2. Por valores RGB (0-255)            
+    3. Cores predefinidas                  
+    0. Voltar                              
+═════════════════════════════════════════
 """)
-
+    
     choice = input("Escolha uma opção: ").strip()
 
     if choice == "1":
@@ -183,13 +183,13 @@ BEGIN print_debug_menu
 def print_debug_menu():
     """Exibe o menu de debug"""
     print("""
-╔═════════════════════════════════════════╗
-║              MENU DEBUG                ║
-╠═════════════════════════════════════════╣
-║  1. Informações do dispositivo         ║
-║  2. Sequência de teste                 ║
-║  0. Voltar                              ║
-╚═════════════════════════════════════════╝
+═════════════════════════════════════════
+              MENU DEBUG                
+═════════════════════════════════════════
+    1. Informações do dispositivo         
+    2. Sequência de teste                 
+    0. Voltar                              
+═════════════════════════════════════════
 """)
 """
 END print_debug_menu
@@ -231,11 +231,11 @@ def set_color_by_hex(lamp: SmartLamp):
     """Define cor por código hexadecimal"""
     hex_color = input("Digite o código hexadecimal (ex: FF0000): ").strip()
 
-    print(f"\n🎨 Configurando cor #{hex_color}...")
+    print(f"\nConfigurando cor #{hex_color}...")
     if lamp.set_color_hex(hex_color):
-        print("✓ Cor configurada com sucesso!")
+        print("Cor configurada com sucesso!")
     else:
-        print("✗ Erro ao configurar cor")
+        print("Erro ao configurar cor")
 """
 END set_color_by_hex
 """
@@ -252,14 +252,13 @@ def set_color_by_rgb(lamp: SmartLamp):
         g = int(input("Verde (0-255): ").strip())
         b = int(input("Azul (0-255): ").strip())
 
-        print(f"\n🎨 Configurando cor RGB({r}, {g}, {b})...")
+        print(f"\nConfigurando cor RGB({r}, {g}, {b})...")
         if lamp.set_color_rgb(r, g, b):
-            print("✓ Cor configurada com sucesso!")
+            print("Cor configurada com sucesso!")
         else:
-            print("✗ Erro ao configurar cor")
-
+            print("Erro ao configurar cor")
     except ValueError:
-        print("✗ Valores inválidos! Digite números entre 0 e 255.")
+        print("Valores inválidos! Digite números entre 0 e 255.")
 # ============================================================================
 # END set_color_by_rgb
 # ============================================================================
@@ -285,30 +284,30 @@ def set_color_by_preset(lamp: SmartLamp):
     }
 
     print("""
-╔═════════════════════════════════════════╗
-║            CORES PREDEFINIDAS          ║
-╠═════════════════════════════════════════╣""")
+═════════════════════════════════════════
+            CORES PREDEFINIDAS          
+═════════════════════════════════════════""")
 
     for key, (name, hex_code) in presets.items():
-        print(f"║  {key}. {name:<12} (#{hex_code})             ║")
+        print(f"  {key}. {name:<12} (#{hex_code})")
 
-    print("""║  0. Voltar                              ║
-╚═════════════════════════════════════════╝
+    print("""   0. Voltar
+══════════════════════════════════════════
 """)
 
     choice = input("Escolha uma cor: ").strip()
 
     if choice in presets:
         name, hex_code = presets[choice]
-        print(f"\n🎨 Configurando cor {name} (#{hex_code})...")
+        print(f"\nConfigurando cor {name} (#{hex_code})...")
         if lamp.set_color_hex(hex_code):
-            print("✓ Cor configurada com sucesso!")
+            print("Cor configurada com sucesso!")
         else:
-            print("✗ Erro ao configurar cor")
+            print("Erro ao configurar cor")
     elif choice == "0":
         return
     else:
-        print("✗ Opção inválida!")
+        print("Opção inválida!")
 # ============================================================================
 # END set_color_by_preset
 # ============================================================================
@@ -323,16 +322,16 @@ def select_lamp_menu(devices: list) -> dict:
     while True:
         clear_screen()
         print("""
-╔═════════════════════════════════════════╗
-║         SELEÇÃO DE LÂMPADA             ║
-╠═════════════════════════════════════════╣""")
+═════════════════════════════════════════
+         SELEÇÃO DE LÂMPADA             
+═════════════════════════════════════════""")
 
         if not devices:
-            print("""║  Nenhum dispositivo encontrado!        ║
-║                                         ║
-║  Use o menu de gerenciamento para       ║
-║  adicionar dispositivos.                ║
-╚═════════════════════════════════════════╝""")
+            print("""  Nenhum dispositivo encontrado!        
+                                         
+  Use o menu de gerenciamento para       
+  adicionar dispositivos.                
+═════════════════════════════════════════""")
             input("\nPressione ENTER para continuar...")
             return None
 
@@ -341,12 +340,12 @@ def select_lamp_menu(devices: list) -> dict:
             name = device['name']
             ip = device.get('ip', 'N/A')
             online = is_lamp_online(device)
-            status = "✓ Online" if online else "✗ Offline"
-            print(f"║  {i}. {name:<15} IP: {ip:<15} {status:<9} ║")
+            status = "Online" if online else "Offline"
+            print(f"  {i}. {name:<15} IP: {ip:<15} {status:<9} ")
 
-        print("""║                                         ║
-║  0. Voltar                               ║
-╚═════════════════════════════════════════╝
+        print("""                                         
+  0. Voltar                               
+═════════════════════════════════════════
 """)
 
         choice = input("Escolha uma lâmpada: ").strip()
@@ -406,15 +405,15 @@ def interactive_menu(lamp: SmartLamp, devices: list = None):
                 if new_lamp.connect():
                     lamp = new_lamp
                     current_lamp_name = lamp.config['name']
-                    print("✓ Conectado com sucesso!")
+                    print("Conectado com sucesso!")
                 else:
-                    print("✗ Erro ao conectar à nova lâmpada")
+                    print("Erro ao conectar à nova lâmpada")
             else:
                 print("Nenhuma lâmpada selecionada")
         elif choice == "0":
             break
         else:
-            print("✗ Opção inválida!")
+            print("Opção inválida!")
 
         if choice != "0":
             input("\nPressione ENTER para continuar...")
@@ -431,58 +430,58 @@ def interactive_menu(lamp: SmartLamp, devices: list = None):
 # @retparms: None - Executa sequência completa de testes na lâmpada
 def test_sequence(lamp: SmartLamp):
     """Executa uma sequência de teste na lâmpada"""
-    print("\n🧪 Iniciando sequência de teste...")
+    print("\n Iniciando sequência de teste...")
 
     # Teste 1: Status
     print("1. Testando obtenção de status...")
     status = lamp.get_status()
     if status:
-        print("   ✓ Status obtido com sucesso")
+        print("   Status obtido com sucesso")
     else:
-        print("   ✗ Erro ao obter status")
+        print("   Erro ao obter status")
         return
 
     # Teste 2: Ligar
     print("2. Testando ligar lâmpada...")
     if lamp.turn_on():
-        print("   ✓ Lâmpada ligada")
+        print("   Lâmpada ligada")
         time.sleep(1)
     else:
-        print("   ✗ Erro ao ligar")
+        print("   Erro ao ligar")
         return
 
     # Teste 3: Brilho
     print("3. Testando ajuste de brilho...")
     if lamp.set_brightness(50):
-        print("   ✓ Brilho ajustado para 50%")
+        print("   Brilho ajustado para 50%")
         time.sleep(1)
     else:
-        print("   ✗ Erro ao ajustar brilho")
+        print("   Erro ao ajustar brilho")
 
     # Teste 4: Cor
     print("4. Testando mudança de cor...")
     if lamp.set_color_hex("FF0000"):
-        print("   ✓ Cor mudada para vermelho")
+        print("   Cor mudada para vermelho")
         time.sleep(1)
     else:
-        print("   ✗ Erro ao mudar cor")
+        print("   Erro ao mudar cor")
 
     # Teste 5: Temperatura
     print("5. Testando ajuste de temperatura...")
     if lamp.set_temperature(75):
-        print("   ✓ Temperatura ajustada para 75%")
+        print("   Temperatura ajustada para 75%")
         time.sleep(1)
     else:
-        print("   ✗ Erro ao ajustar temperatura")
+        print("    Erro ao ajustar temperatura")
 
     # Teste 6: Desligar
     print("6. Testando desligar lâmpada...")
     if lamp.turn_off():
-        print("   ✓ Lâmpada desligada")
+        print("   Lâmpada desligada")
     else:
-        print("   ✗ Erro ao desligar")
+        print("   Erro ao desligar")
 
-    print("\n✓ Sequência de teste concluída!")
+    print("\n Sequência de teste concluída!")
 # ============================================================================
 # END test_sequence
 # ============================================================================
@@ -494,18 +493,18 @@ def test_sequence(lamp: SmartLamp):
 def print_admin_menu():
     """Exibe o menu de administração"""
     print("""
-╔═════════════════════════════════════════╗
-║       GERENCIAMENTO DE DISPOSITIVOS    ║
-╠═════════════════════════════════════════╣
-║  1. Executar wizard de descoberta      ║
-║  2. Adicionar dispositivo manualmente  ║
-║  3. Listar dispositivos                ║
-║  4. Editar dispositivo                 ║
-║  5. Remover dispositivo                ║
-║  6. Exportar dispositivos              ║
-║  7. Importar dispositivos              ║
-║  0. Voltar                             ║
-╚═════════════════════════════════════════╝
+═════════════════════════════════════════
+       GERENCIAMENTO DE DISPOSITIVOS    
+═════════════════════════════════════════
+  1. Executar wizard de descoberta          
+  2. Adicionar dispositivo manualmente  
+  3. Listar dispositivos                
+  4. Editar dispositivo                 
+  5. Remover dispositivo                
+  6. Exportar dispositivos              
+  7. Importar dispositivos              
+  0. Voltar    
+═════════════════════════════════════════                         
 """)
 # ============================================================================
 # END print_admin_menu
@@ -527,50 +526,49 @@ def admin_menu(manager: DeviceManager) -> None:
         if choice == "1":
             # Executar wizard
             if manager.run_wizard():
-                print("\n✓ Wizard executado com sucesso!")
+                print("\n Wizard executado com sucesso!")
             else:
-                print("\n✗ Erro ao executar wizard")
+                print("\n Erro ao executar wizard")
         elif choice == "2":
             # Adicionar dispositivo
             if manager.add_device():
-                print("\n✓ Dispositivo adicionado com sucesso!")
+                print("\n Dispositivo adicionado com sucesso!")
             else:
-                print("\n✗ Erro ao adicionar dispositivo")
+                print("\n Erro ao adicionar dispositivo")
         elif choice == "3":
             # Listar dispositivos
             manager.list_devices()
         elif choice == "4":
             # Editar dispositivo
             if manager.edit_device():
-                print("\n✓ Dispositivo editado com sucesso!")
+                print("\n Dispositivo editado com sucesso!")
             else:
-                print("\n✗ Erro ao editar dispositivo")
+                print("\n Erro ao editar dispositivo")
         elif choice == "5":
             # Remover dispositivo
             if manager.remove_device():
-                print("\n✓ Dispositivo removido com sucesso!")
+                print("\n Dispositivo removido com sucesso!")
             else:
-                print("\n✗ Erro ao remover dispositivo")
+                print("\n Erro ao remover dispositivo")
         elif choice == "6":
             # Exportar
             if manager.export_devices():
-                print("\n✓ Dispositivos exportados com sucesso!")
+                print("\n Dispositivos exportados com sucesso!")
             else:
-                print("\n✗ Erro ao exportar dispositivos")
+                print("\n Erro ao exportar dispositivos")
         elif choice == "7":
             # Importar
             filename = input("Nome do arquivo a importar: ").strip()
             if not filename:
-                print("✗ Nome do arquivo é obrigatório!")
+                print("Nome do arquivo é obrigatório!")
             elif manager.import_devices(filename):
-                print("\n✓ Dispositivos importados com sucesso!")
+                print("\n Dispositivos importados com sucesso!")
             else:
-                print("\n✗ Erro ao importar dispositivos")
+                print("\n Erro ao importar dispositivos")
         elif choice == "0":
             break
         else:
-            print("✗ Opção inválida!")
-
+            print(" Opção inválida!")
         if choice != "0":
             input("\nPressione ENTER para continuar...")
 # ============================================================================
@@ -584,14 +582,14 @@ def admin_menu(manager: DeviceManager) -> None:
 def print_main_menu():
     """Exibe o menu inicial"""
     print("""
-╔═════════════════════════════════════════╗
-║    CONTROLE DE LÂMPADA INTELIGENTE      ║
-║          Tuya - v0.2                    ║
-╠═════════════════════════════════════════╣
-║  1. Controlar Lâmpada                   ║
-║  2. Gerenciar Dispositivos              ║
-║  0. Sair                                ║
-╚═════════════════════════════════════════╝
+═════════════════════════════════════════
+    CONTROLE DE LÂMPADA INTELIGENTE      
+          Tuya - v0.2                    
+═════════════════════════════════════════
+  1. Controlar Lâmpada                   
+  2. Gerenciar Dispositivos              
+  0. Sair                                
+═════════════════════════════════════════
 """)
 # ============================================================================
 # END print_main_menu
@@ -607,7 +605,7 @@ def control_lamp(manager: DeviceManager) -> None:
     # Carrega dispositivos
     devices = manager.devices
     if not devices:
-        print("❌ Nenhum dispositivo encontrado!")
+        print(" Nenhum dispositivo encontrado!")
         print("Use o menu de gerenciamento para adicionar dispositivos.")
         return
 
@@ -620,12 +618,12 @@ def control_lamp(manager: DeviceManager) -> None:
     lamp = SmartLamp(device)
 
     # Conecta à lâmpada
-    print(f"\n🔌 Conectando à lâmpada '{device['name']}'...")
+    print(f"\n Conectando à lâmpada '{device['name']}'...")
     if not lamp.connect():
-        print("❌ Erro ao conectar à lâmpada!")
+        print(" Erro ao conectar à lâmpada!")
         return
 
-    print("✅ Conectado com sucesso!")
+    print(" Conectado com sucesso!")
 
     # Menu interativo
     interactive_menu(lamp, devices)
@@ -659,10 +657,10 @@ CONTROLE DE LÂMPADA INTELIGENTE TUYA - v0.2
         elif choice == "2":
             admin_menu(manager)
         elif choice == "0":
-            print("\n👋 Até logo!")
+            print("\n Até logo!")
             break
         else:
-            print("✗ Opção inválida!")
+            print(" Opção inválida!")
 
         if choice != "0":
             input("\nPressione ENTER para continuar...")
