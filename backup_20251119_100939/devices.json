@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Lâmpada NEO 10W RGB",
+        "id": "eb248a6af551067dc0wfhx",
+        "key": "~M]LGq#1*Dyp#1'#",
+        "mac": "18:de:50:05:a7:8a",
+        "ip": "",
+        "version": "3.3",
+        "product_key": ""
+    },
+    {
+        "name": "Lâmpada NEO 10W RGB 2",
+        "id": "ebecbc6d2743ca812dzudh",
+        "key": "SJ*:Nn{{+VN2kH3^",
+        "mac": "18:de:50:05:6b:e1",
+        "ip": "",
+        "version": "3.3",
+        "product_key": ""
+    },
+    {
+        "name": "Quarto Frente",
+        "id": "eb0c51a0ad75437a11wcoi",
+        "key": "NY><r+?LyLP_zk+E",
+        "mac": "18:de:50:05:92:ea",
+        "ip": "",
+        "version": "3.3",
+        "product_key": ""
+    },
+    {
+        "name": "Quarto Fundo",
+        "id": "eb6e1155750a56afefzctr",
+        "key": "<[YELUF'Q9v!kxvD",
+        "mac": "18:de:50:05:9f:f2",
+        "ip": "",
+        "version": "3.3",
+        "product_key": ""
+    }
+]
