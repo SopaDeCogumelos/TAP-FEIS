@@ -1,12 +1,3 @@
-"""
-    Disciplina: Tópicos Avançados de Programação
-    Professor: Christiane Marie Schweitzer
-    Aluno: Luis Felipe Marcon Brunhara
-    Git: https://github.com/SopaDeCogumelos/TAP-FEIS
-
-    Projeto Final - Gerenciamento de Dispositivos IoT - v0.4
-"""
-
 # Projeto JarVision v0.4
 
 Sistema de gerenciamento e controle de dispositivos IoT Tuya (Lâmpadas Inteligentes) com interface gráfica moderna desenvolvida em Kivy.
