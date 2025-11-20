@@ -500,7 +500,7 @@ class DashboardScreen(Screen):
         # Action Bar (Cabeçalho)
         action_bar = ActionBar()
         av = ActionView()
-        av.add_widget(ActionPrevious(title='Tuya IoT Manager', with_previous=False))
+        av.add_widget(ActionPrevious(title='JarVision IoT Manager', with_previous=False))
         av.add_widget(ActionButton(text='Atualizar', on_press=self.refresh_devices))
         av.add_widget(ActionButton(text='Config', on_press=self.open_settings))
         action_bar.add_widget(av)
