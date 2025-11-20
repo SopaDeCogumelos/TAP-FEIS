@@ -19,6 +19,7 @@ from kivy.uix.switch import Switch
 from kivy.uix.colorpicker import ColorPicker
 from kivy.uix.popup import Popup
 from tuya_lib import DeviceManager, SmartLamp
+import tinytuya
 
 import threading
 from kivy.clock import Clock
@@ -216,11 +217,56 @@ class AdminScreen(Screen):
             row = BoxLayout(size_hint_y=None, height=50, spacing=10)
             row.add_widget(Label(text=f"{device['name']} ({device['ip']})", size_hint_x=0.7))
             
+            btn_edit = Button(text="Edit", size_hint_x=None, width=50)
+            btn_edit.bind(on_press=lambda x, d=device: self.edit_device(d))
+            row.add_widget(btn_edit)
+            
             btn_del = Button(text="X", size_hint_x=None, width=50, background_color=(1, 0, 0, 1))
             btn_del.bind(on_press=lambda x, d=device: self.confirm_delete(d))
             row.add_widget(btn_del)
             
             self.device_list.add_widget(row)
+
+    def edit_device(self, device):
+        content = BoxLayout(orientation='vertical', padding=10, spacing=10)
+        
+        from kivy.uix.textinput import TextInput
+        
+        input_name = TextInput(text=device.get('name', ''), hint_text="Nome", multiline=False)
+        input_id = TextInput(text=device.get('id', ''), hint_text="ID (Tuya)", multiline=False)
+        input_key = TextInput(text=device.get('key', ''), hint_text="Local Key", multiline=False)
+        input_ip = TextInput(text=device.get('ip', ''), hint_text="IP (Opcional)", multiline=False)
+        input_ver = TextInput(text=device.get('version', '3.5'), hint_text="Versão (3.1, 3.3, 3.5)", multiline=False)
+        
+        content.add_widget(input_name)
+        content.add_widget(input_id)
+        content.add_widget(input_key)
+        content.add_widget(input_ip)
+        content.add_widget(input_ver)
+        
+        btn_save = Button(text="Salvar", size_hint_y=None, height=50)
+        content.add_widget(btn_save)
+        
+        popup = Popup(title='Editar Dispositivo', content=content, size_hint=(0.9, 0.7))
+        
+        def save(inst):
+            if not input_name.text or not input_id.text or not input_key.text:
+                return 
+            
+            # Update existing dictionary
+            device['name'] = input_name.text
+            device['id'] = input_id.text
+            device['key'] = input_key.text
+            device['ip'] = input_ip.text
+            device['version'] = input_ver.text
+            
+            app = App.get_running_app()
+            app.device_manager.save_devices()
+            self.refresh_list()
+            popup.dismiss()
+            
+        btn_save.bind(on_press=save)
+        popup.open()
 
     def confirm_delete(self, device):
         content = BoxLayout(orientation='vertical', padding=10, spacing=10)
@@ -255,16 +301,18 @@ class AdminScreen(Screen):
         input_id = TextInput(hint_text="ID (Tuya)", multiline=False)
         input_key = TextInput(hint_text="Local Key", multiline=False)
         input_ip = TextInput(hint_text="IP (Opcional)", multiline=False)
+        input_ver = TextInput(text="3.5", hint_text="Versão (3.1, 3.3, 3.5)", multiline=False)
         
         content.add_widget(input_name)
         content.add_widget(input_id)
         content.add_widget(input_key)
         content.add_widget(input_ip)
+        content.add_widget(input_ver)
         
         btn_save = Button(text="Salvar", size_hint_y=None, height=50)
         content.add_widget(btn_save)
         
-        popup = Popup(title='Adicionar Dispositivo', content=content, size_hint=(0.9, 0.6))
+        popup = Popup(title='Adicionar Dispositivo', content=content, size_hint=(0.9, 0.7))
         
         def save(inst):
             if not input_name.text or not input_id.text or not input_key.text:
@@ -275,6 +323,7 @@ class AdminScreen(Screen):
                 'id': input_id.text,
                 'key': input_key.text,
                 'ip': input_ip.text,
+                'version': input_ver.text,
                 'mac': '', 'uuid': '', 'model': ''
             }
             
@@ -295,9 +344,9 @@ class AdminScreen(Screen):
         threading.Thread(target=self.run_scan_thread, daemon=True).start()
 
     def run_scan_thread(self):
-        import tinytuya
         try:
-            devices = tinytuya.discover()
+            # deviceScan retorna dict com IPs como chaves
+            devices = tinytuya.deviceScan(verbose=False)
             Clock.schedule_once(lambda dt: self.on_scan_complete(devices))
         except Exception as e:
             print(f"Erro no scan: {e}")
@@ -317,13 +366,16 @@ class AdminScreen(Screen):
         grid = GridLayout(cols=1, spacing=5, size_hint_y=None)
         grid.bind(minimum_height=grid.setter('height'))
         
-        for dev_id, info in devices.items():
+        # devices é keyed por IP
+        for ip, info in devices.items():
+            dev_id = info.get('gwId') or info.get('id') or 'Desconhecido'
+            
             row = BoxLayout(size_hint_y=None, height=80, orientation='vertical')
             row.add_widget(Label(text=f"ID: {dev_id}"))
-            row.add_widget(Label(text=f"IP: {info.get('ip')}"))
+            row.add_widget(Label(text=f"IP: {ip}"))
             
             btn_add = Button(text="Adicionar", size_hint_y=None, height=40)
-            # Callback para adicionar (precisa pedir Nome e Key pois o discover não traz a Key)
+            # Callback para adicionar
             btn_add.bind(on_press=lambda x, i=dev_id, inf=info: self.prompt_add_discovered(i, inf))
             row.add_widget(btn_add)
             
@@ -348,8 +400,11 @@ class AdminScreen(Screen):
         input_name = TextInput(hint_text="Nome", multiline=False)
         input_key = TextInput(hint_text="Local Key", multiline=False)
         
+        version = info.get('version', '3.3')
+        
         content.add_widget(Label(text=f"ID: {dev_id}"))
         content.add_widget(Label(text=f"IP: {info.get('ip')}"))
+        content.add_widget(Label(text=f"Ver: {version}"))
         content.add_widget(input_name)
         content.add_widget(input_key)
         
@@ -367,6 +422,7 @@ class AdminScreen(Screen):
                 'id': dev_id,
                 'key': input_key.text,
                 'ip': info.get('ip'),
+                'version': version,
                 'mac': info.get('mac', ''),
                 'uuid': info.get('uuid', ''),
                 'model': info.get('productKey', '') # productKey as model proxy
@@ -468,7 +524,7 @@ class DashboardScreen(Screen):
 
 class TuyaControllerApp(App):
     def build(self):
-        self.title = "Controle Tuya IoT v0.3"
+        self.title = "Projeto JarVision"
         self.device_manager = DeviceManager()
         
         sm = ScreenManager()

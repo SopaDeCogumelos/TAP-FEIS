@@ -59,12 +59,12 @@ class SmartLamp:
         self.device = None
         self.connected = False
 
-        # Extrai DPs importantes
-        self.dp_switch = get_dp_from_mapping(device_config, 'switch_led')
-        self.dp_brightness = get_dp_from_mapping(device_config, 'bright_value')
-        self.dp_work_mode = get_dp_from_mapping(device_config, 'work_mode')
-        self.dp_colour = get_dp_from_mapping(device_config, 'colour_data')
-        self.dp_temperature = get_dp_from_mapping(device_config, 'temp_value')
+        # Extrai DPs importantes (com fallback para padrão)
+        self.dp_switch = get_dp_from_mapping(device_config, 'switch_led') or '20'
+        self.dp_brightness = get_dp_from_mapping(device_config, 'bright_value') or '22'
+        self.dp_work_mode = get_dp_from_mapping(device_config, 'work_mode') or '21'
+        self.dp_colour = get_dp_from_mapping(device_config, 'colour_data') or '24'
+        self.dp_temperature = get_dp_from_mapping(device_config, 'temp_value') or '23'
 
     def connect(self, timeout: int = 5) -> bool:
         """
