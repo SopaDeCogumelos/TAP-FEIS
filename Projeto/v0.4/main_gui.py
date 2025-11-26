@@ -40,7 +40,27 @@ import threading
 from kivy.clock import Clock
 
 # --- Widgets ---
+"""
+BEGIN ControlScreen
+    - @param **kwargs : Argumentos padrão do Kivy Screen
+    - @var/obj device_config : Configuração do dispositivo atual
+    - @var/obj lamp : Instância de SmartLamp controlada
+    - @var/obj layout : Layout principal da tela
+    - @method __init__ : Inicializa a tela de controle
+    - @method load_device : Carrega configurações e inicia conexão com dispositivo
+    - @method connect_device_thread : Thread de conexão em background
+    - @method on_connection_result : Callback de resultado da conexão
+    - @method enable_controls : Habilita/desabilita widgets de controle
+    - @method update_ui_from_status : Atualiza UI com estado atual da lâmpada
+    - @method toggle_power : Alterna estado ligado/desligado
+    - @method set_brightness : Define brilho da lâmpada
+    - @method set_temperature : Define temperatura de cor
+    - @method open_color_picker : Abre popup de seleção de cor
+    - @method go_back : Retorna ao Dashboard
+    - @retparms : Instância da classe ControlScreen
+"""
 class ControlScreen(Screen):
+    
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.name = 'control'
@@ -177,8 +197,30 @@ class ControlScreen(Screen):
     def go_back(self, instance):
         self.manager.transition.direction = 'right'
         self.manager.current = 'dashboard'
+"""
+END ControlScreen
+"""
 
+"""
+BEGIN AdminScreen
+    - @param **kwargs : Argumentos padrão do Kivy Screen
+    - @var/obj layout : Layout principal da tela
+    - @var/obj device_list : Grid com lista de dispositivos
+    - @method __init__ : Inicializa a tela de administração
+    - @method on_enter : Atualiza lista ao entrar na tela
+    - @method go_back : Retorna ao Dashboard
+    - @method refresh_list : Recarrega lista de dispositivos cadastrados
+    - @method edit_device : Abre popup para editar dispositivo
+    - @method confirm_delete : Abre popup de confirmação de exclusão
+    - @method show_add_popup : Abre popup para adição manual
+    - @method scan_network : Inicia processo de scan de rede
+    - @method run_scan_thread : Executa scan tinytuya em background
+    - @method on_scan_complete : Processa resultados do scan
+    - @method prompt_add_discovered : Abre popup para adicionar dispositivo encontrado
+    - @retparms : Instância da classe AdminScreen
+"""
 class AdminScreen(Screen):
+    
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.name = 'admin'
@@ -451,7 +493,19 @@ class AdminScreen(Screen):
             
         btn_save.bind(on_press=save)
         popup.open()
+"""
+END AdminScreen
+"""
 
+"""
+BEGIN DeviceCard
+    - @param device : Dicionário com dados do dispositivo
+    - @param **kwargs : Argumentos padrão do Kivy BoxLayout
+    - @var/obj device : Dados do dispositivo vinculado
+    - @method __init__ : Inicializa o card do dispositivo
+    - @method open_control : Navega para tela de controle deste dispositivo
+    - @retparms : Instância da classe DeviceCard
+"""
 class DeviceCard(BoxLayout):
     def __init__(self, device, **kwargs):
         super().__init__(**kwargs)
@@ -489,7 +543,19 @@ class DeviceCard(BoxLayout):
             control_screen.load_device(self.device)
             screen_manager.transition.direction = 'left'
             screen_manager.current = 'control'
+"""
+END DeviceCard
+"""
 
+"""
+BEGIN DashboardScreen
+    - @param **kwargs : Argumentos padrão do Kivy Screen
+    - @var/obj device_grid : Grid onde os cards são exibidos
+    - @method __init__ : Inicializa o dashboard principal
+    - @method refresh_devices : Recarrega dispositivos do DeviceManager
+    - @method open_settings : Navega para tela de administração
+    - @retparms : Instância da classe DashboardScreen
+"""
 class DashboardScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -536,8 +602,21 @@ class DashboardScreen(Screen):
     def open_settings(self, instance):
         self.manager.transition.direction = 'left'
         self.manager.current = 'admin'
+"""
+END DashboardScreen
+"""
 
+"""
+BEGIN TuyaControllerApp
+    - @var/obj device_manager : Gerenciador global de dispositivos
+    - @var/obj dashboard : Tela principal
+    - @var/obj control : Tela de controle
+    - @var/obj admin : Tela de administração
+    - @method build : Constrói a aplicação Kivy e ScreenManager
+    - @retparms : Instância da aplicação
+"""
 class TuyaControllerApp(App):
+    
     def build(self):
         self.title = "Projeto JarVision v0.4"
         self.device_manager = DeviceManager()
